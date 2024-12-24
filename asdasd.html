@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        /* Container Style */
+        .image-slider {
+            width: 300px; /* Full width */
+            max-width: 300px; /* Max width of the container */
+            margin: auto; /* Center the container */
+            overflow: hidden; /* Hide anything outside the container */
+        }
+
+        /* Image container (to hold all images) */
+        .image-container {
+            display: flex; /* Arrange images in a row */
+            transition: transform 1s ease-in-out; /* Smooth transition effect */
+        }
+
+        /* Image Style */
+        .image-container img {
+            width: 300px; /* Make the image fill the container */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Image Slider Container -->
+    <div class="image-slider">
+        <div class="image-container">
+            <img src="Blue-Pearl-Gt-512x384.jpg" alt="Image 1">
+            <img src="Screenshot_18-12-2024_2361_.jpeg" alt="Image 2">
+            <img src="2-1.webp" alt="Image 3">
+            <img src="dark.jpg" alt="Image 4">
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelector('.image-container');
+        const totalImages = images.children.length;
+
+        function changeImage() {
+            // Update the current index
+            currentIndex = (currentIndex + 1) % totalImages;
+
+            // Apply the transform property to shift images
+            images.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Change image every 4 seconds
+        setInterval(changeImage, 4000); 
+    </script>
+
+</body>
+</html>

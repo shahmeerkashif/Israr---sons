@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar and other content can go here -->
+
+    <div class="container mt-5">
+        <h1>Image Details</h1>
+        <div id="image-details">
+            <!-- Image details will be loaded here based on the URL parameter -->
+        </div>
+    </div>
+
+    <script>
+        // Get the image query parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const image = urlParams.get('image');
+        
+        // Example: Depending on the image parameter, show details
+        let imageDetails = '';
+
+        switch(image) {
+            case 'BlueValley':
+                imageDetails = `
+                    <h2>Blue Valley</h2>
+                    <img src="BLUE-VALLEY--500x500.jpg" alt="Blue Valley" style="width:100%; height:auto;">
+                    <p>Here are the details for Blue Valley granite...</p>
+                `;
+                break;
+            case 'WineRed':
+                imageDetails = `
+                    <h2>Wine Red</h2>
+                    <img src="Wine-Red-500x500.jpg" alt="Wine Red" style="width:100%; height:auto;">
+                    <p>Here are the details for Wine Red granite...</p>
+                `;
+                break;
+            case 'BluePearl':
+                imageDetails = `
+                    <h2>Blue Pear GT</h2>
+                    <img src="Blue-Pearl-Gt-512x384.jpg" alt="Blue Pear GT" style="width:100%; height:auto;">
+                    <p>Here are the details for Blue Pear GT granite...</p>
+                `;
+                break;
+            case 'GemRed':
+                imageDetails = `
+                    <h2>Gem Red</h2>
+                    <img src="ROSSO-SANTIAGO-RED-1-512x384.jpg" alt="Gem Red" style="width:100%; height:auto;">
+                    <p>Here are the details for Gem Red granite...</p>
+                `;
+                break;
+            default:
+                imageDetails = '<p>No details available for this image.</p>';
+        }
+
+        // Display the image details
+        document.getElementById('image-details').innerHTML = imageDetails;
+    </script>
+
+</body>
+</html>
